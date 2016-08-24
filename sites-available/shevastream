@@ -48,11 +48,4 @@ server {
 	proxy_pass http://localhost:5000;
         proxy_set_header Connection keep-alive;
     }
-
-    location /nginx_status {
-	stub_status on;
-	access_log off;
-	allow 127.0.0.1; # IP с которого будет опрашиваться Nginx
-	deny all;
-    }
 }
