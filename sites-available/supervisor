@@ -1,0 +1,14 @@
+server {
+    listen 80;
+
+    server_name supervisor.dbogatov.org;
+
+    location / {
+        proxy_pass http://localhost:9005;
+
+        include /etc/nginx/snippets/proxy_pass.conf;
+
+	auth_basic "Restricted Content";
+	auth_basic_user_file /etc/nginx/.htpasswd;
+    }
+}

@@ -1,0 +1,21 @@
+server {
+    server_name personal.dbogatov.org;
+
+    include /etc/nginx/snippets/http_redirect.conf;
+}
+
+server {
+    server_name personal.dbogatov.org;
+
+    ssl_certificate /etc/letsencrypt/live/personal.dbogatov.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/personal.dbogatov.org/privkey.pem;
+
+    include /etc/nginx/snippets/ssl_config.conf;
+
+    location / {
+	proxy_pass http://localhost:5001;
+	proxy_set_header Connection keep-alive;
+    }
+
+    include /etc/nginx/snippets/letsencrypt.conf;
+}
