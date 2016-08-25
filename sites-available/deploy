@@ -1,19 +1,9 @@
 server {
     listen 80;
 
-    server_name lua.dbogatov.org;
+    server_name deploy.dbogatov.org;
 
-    root /var/static/Visa-Support;
-
-    location = / {
-        index index.html;
-    }
-
-    location / {
-        try_files $uri.html $uri =404;
-    }
-
-    location /lua {
+    location /deploy {
 
         client_max_body_size 50k;
         client_body_buffer_size 50k;
@@ -34,10 +24,8 @@ server {
               elseif key == "project" then
                project = val
               end
---              ngx.say(key, ": ", val)
              end
-             ngx.say("token: ", token)
-             ngx.say("project: ", project)
+             ngx.say("Request deployement for project: ", project)
 
              if token == "SomeSecret" then
 
@@ -52,8 +40,9 @@ server {
               if project == "" then
                ngx.say("No such project (", project, ")")
               else
-               ngx.say("Executing")
+               ngx.say("Executing ", path)
                os.execute(path)
+               ngx.say("Execution completed")
               end
 
              else
@@ -64,20 +53,4 @@ server {
         }
     
     }
-    
-    location /hello {
-        default_type 'text/plain';
-        
-        content_by_lua_block {
-            ngx.req.read_body()
-            local args = ngx.req.get_post_args()
-            ngx.say('Body data:')
-            ngx.print(args)
-        }
-    }
-
-    location /deploy {
-        content_by_lua 'os.execute("/var/static/CV-Website/.deploy.sh")';
-    }
-
 }
