@@ -1,8 +1,19 @@
 server {
-    listen 80;
-
+    server_name deploy.dbogatov.org;
+    
+    include /etc/nginx/snippets/http_redirect.conf;
+}
+    
+server {
     server_name deploy.dbogatov.org;
 
+    ssl_certificate /etc/letsencrypt/live/deploy.dbogatov.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/deploy.dbogatov.org/privkey.pem;
+
+    include /etc/nginx/snippets/ssl_config.conf;
+    
+    include /etc/nginx/snippets/letsencrypt.conf;
+    
     location /deploy {
 
         client_max_body_size 50k;
