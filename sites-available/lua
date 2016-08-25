@@ -12,10 +12,72 @@ server {
     location / {
         try_files $uri.html $uri =404;
     }
+
+    location /lua {
+
+        client_max_body_size 50k;
+        client_body_buffer_size 50k;
+
+        content_by_lua_block {
+            ngx.req.read_body()  -- explicitly read the req body
+            local args, err = ngx.req.get_post_args()
+            local data = ngx.req.get_body_data()
+
+            local token = ""
+            local project = ""
+            local path = ""
+            
+            if data then
+             for key, val in pairs(args) do
+              if key == "token" then
+               token = val
+              elseif key == "project" then
+               project = val
+              end
+--              ngx.say(key, ": ", val)
+             end
+             ngx.say("token: ", token)
+             ngx.say("project: ", project)
+
+             if token == "SomeSecret" then
+
+              if project == "CV-Website" then
+               path = "/var/static/CV-Website/.deploy.sh"
+              elseif project == "DashaWebsite" then
+               path = "/var/static/dashawebsite/.deploy.sh"
+              elseif project == "VisaSupport" then
+               path = "/var/static/Visa-Support/.deploy.sh"
+              end
+
+              if project == "" then
+               ngx.say("No such project (", project, ")")
+              else
+               ngx.say("Executing")
+               os.execute(path)
+              end
+
+             else
+              ngx.say("Invalid token")
+             end
+            end
+
+        }
+    
+    }
     
     location /hello {
-        set_unescape_uri $name $arg_name;
-        set_if_empty $name "Anonymous";
-        echo "Hello, $name!";
+        default_type 'text/plain';
+        
+        content_by_lua_block {
+            ngx.req.read_body()
+            local args = ngx.req.get_post_args()
+            ngx.say('Body data:')
+            ngx.print(args)
+        }
     }
+
+    location /deploy {
+        content_by_lua 'os.execute("/var/static/CV-Website/.deploy.sh")';
+    }
+
 }
