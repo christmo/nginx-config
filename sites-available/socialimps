@@ -1,0 +1,22 @@
+server {
+    server_name socialimps.dbogatov.org;
+    
+    include /etc/nginx/snippets/http_redirect.conf;
+}
+
+server {
+    ssl_certificate /etc/letsencrypt/live/socialimps.dbogatov.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/socialimps.dbogatov.org/privkey.pem;
+
+    server_name socialimps.dbogatov.org;
+
+    include /etc/nginx/snippets/ssl_config.conf;
+
+    location / {
+        proxy_pass http://localhost:5003;
+
+        include /etc/nginx/snippets/proxy_pass.conf;
+    }
+
+    include /etc/nginx/snippets/letsencrypt.conf;
+}
