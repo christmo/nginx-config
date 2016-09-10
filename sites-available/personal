@@ -5,7 +5,7 @@ server {
     }
 
 server {
-    server_name dbogatov.org;
+    server_name *.dbogatov.org;
     
     include /etc/nginx/snippets/http_redirect.conf;
 }
