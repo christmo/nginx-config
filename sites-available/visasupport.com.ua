@@ -15,7 +15,7 @@ server {
 
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/VisaSupport-Websites/visasupport.com.ua/;
+    root /var/static/VisaSupport/visasupport.com.ua/;
     index index.php index.html index.htm default.html default.htm;
 
     client_max_body_size 100M;

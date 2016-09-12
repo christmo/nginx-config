@@ -12,7 +12,7 @@ server {
 
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/Visa-Support;
+    root /var/static/VisaSupport/travelus.com.ua/;
 
     location = / {
         index index.html;

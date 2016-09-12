@@ -12,7 +12,7 @@ server {
 
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/VisaSupport-Websites/zima.visasupport.com.ua/;
+    root /var/static/VisaSupport/zima.visasupport.com.ua/;
 
     location = / {
         index index.html;

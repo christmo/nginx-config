@@ -1,18 +1,18 @@
 server {
-    server_name eukiev.dbogatov.org;
+    server_name eu.visasupport.kiev.ua;
 
     include /etc/nginx/snippets/http_redirect.conf;
 }
 
 server {
-    server_name eukiev.dbogatov.org;
+    server_name eu.visasupport.kiev.ua;
 
-    ssl_certificate /etc/letsencrypt/live/eukiev.dbogatov.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/eukiev.dbogatov.org/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/eu.visasupport.kiev.ua/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/eu.visasupport.kiev.ua/privkey.pem;
 
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/VisaSupport-Websites/eu.visasupport.kiev.ua/;
+    root /var/static/VisaSupport/eu.visasupport.kiev.ua/;
 
     location = / {
         index index.html;
