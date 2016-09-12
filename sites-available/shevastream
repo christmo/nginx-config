@@ -11,6 +11,19 @@ server {
 }
 
 server {
+    server_name www.shevastream.com;
+
+    include /etc/nginx/snippets/ssl_config.conf;
+
+    include /etc/nginx/snippets/letsencrypt.conf;
+    
+    ssl_certificate /etc/letsencrypt/live/shevastream.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/shevastream.com/privkey.pem;
+
+    return 301 $scheme://shevastream.com$request_uri;
+}
+
+server {
     server_name shevastream.com;
 
     ssl_certificate /etc/letsencrypt/live/shevastream.com/fullchain.pem;

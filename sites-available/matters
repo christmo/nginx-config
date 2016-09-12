@@ -8,20 +8,27 @@ server {
     ssl_certificate /etc/letsencrypt/live/matters.dbogatov.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/matters.dbogatov.org/privkey.pem;
 
+    access_log /var/log/nginx/matters.dbogatov.org.out.log;
+    error_log /var/log/nginx/matters.dbogatov.org.err.log;
+    
     server_name matters.dbogatov.org;
 
     include /etc/nginx/snippets/ssl_config.conf;
 
+    include /etc/nginx/snippets/proxy_pass.conf;
+    
     location / {
+        # trick for stupid Spring framework
+        if ($request_method = HEAD) { return 200; }
+        
         proxy_pass http://localhost:8080/matters/;
-
-        include /etc/nginx/snippets/proxy_pass.conf;
     }
 
     location /matters {
+        # trick for stupid Spring framework
+        if ($request_method = HEAD) { return 200; }
+        
         proxy_pass http://localhost:8080/matters/;
-
-        include /etc/nginx/snippets/proxy_pass.conf;
     }
 
     include /etc/nginx/snippets/letsencrypt.conf;
