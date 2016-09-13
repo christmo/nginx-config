@@ -3,6 +3,9 @@ server {
 
     server_name supervisor.dbogatov.org;
 
+    access_log /var/log/nginx/supervisor.dbogatov.org.out.log;
+    error_log /var/log/nginx/supervisor.dbogatov.org.err.log;
+
     location / {
         proxy_pass http://localhost:9005;
 

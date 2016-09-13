@@ -13,6 +13,9 @@ server {
 server {
     server_name dbogatov.org;
 
+    access_log /var/log/nginx/dbogatov.org.out.log;
+    error_log /var/log/nginx/dbogatov.org.err.log;
+
     ssl_certificate /etc/letsencrypt/live/dbogatov.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/dbogatov.org/privkey.pem;
     

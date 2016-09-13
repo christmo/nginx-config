@@ -7,6 +7,9 @@ server {
 server {
     server_name lp.visasupport.kiev.ua;
 
+    access_log /var/log/nginx/lp.visasupport.kiev.ua.out.log;
+    error_log /var/log/nginx/lp.visasupport.kiev.ua.err.log;
+    
     ssl_certificate /etc/letsencrypt/live/lp.visasupport.kiev.ua/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/lp.visasupport.kiev.ua/privkey.pem;
 

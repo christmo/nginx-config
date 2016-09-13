@@ -7,6 +7,9 @@ server {
 server {
     server_name zima.visasupport.com.ua;
 
+    access_log /var/log/nginx/zima.visasupport.com.ua.out.log;
+    error_log /var/log/nginx/zima.visasupport.com.ua.err.log;
+    
     ssl_certificate /etc/letsencrypt/live/zima.visasupport.com.ua/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/zima.visasupport.com.ua/privkey.pem;
 

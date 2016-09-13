@@ -5,6 +5,10 @@ server {
 }
 
 server {
+
+    access_log /var/log/nginx/admin.dbogatov.org.out.log;
+    error_log /var/log/nginx/admin.dbogatov.org.err.log;
+    
     ssl_certificate /etc/letsencrypt/live/admin.dbogatov.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/admin.dbogatov.org/privkey.pem;
 

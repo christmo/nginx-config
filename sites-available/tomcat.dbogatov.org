@@ -5,6 +5,10 @@ server {
 }
 
 server {
+
+    access_log /var/log/nginx/tomcat.dbogatov.org.out.log;
+    error_log /var/log/nginx/tomcat.dbogatov.org.err.log;
+    
     ssl_certificate /etc/letsencrypt/live/tomcat.dbogatov.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/tomcat.dbogatov.org/privkey.pem;
 

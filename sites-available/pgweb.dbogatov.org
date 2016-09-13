@@ -7,6 +7,9 @@ server {
 server {
     server_name pgweb.dbogatov.org;
 
+    access_log /var/log/nginx/pgweb.dbogatov.org.out.log;
+    error_log /var/log/nginx/pgweb.dbogatov.org.err.log;
+    
     ssl_certificate /etc/letsencrypt/live/pgweb.dbogatov.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/pgweb.dbogatov.org/privkey.pem;
 

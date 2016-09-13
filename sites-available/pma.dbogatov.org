@@ -7,6 +7,9 @@ server {
 server {
     server_name pma.dbogatov.org;
 
+    access_log /var/log/nginx/pma.dbogatov.org.out.log;
+    error_log /var/log/nginx/pma.dbogatov.org.err.log;
+    
     ssl_certificate /etc/letsencrypt/live/pma.dbogatov.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/pma.dbogatov.org/privkey.pem;
 

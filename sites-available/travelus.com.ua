@@ -7,6 +7,9 @@ server {
 server {
     server_name travelus.com.ua www.travelus.com.ua;
 
+    access_log /var/log/nginx/travelus.com.ua.out.log;
+    error_log /var/log/nginx/travelus.com.ua.err.log;
+
     ssl_certificate /etc/letsencrypt/live/www.travelus.com.ua/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/www.travelus.com.ua/privkey.pem;
 

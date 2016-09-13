@@ -26,6 +26,9 @@ server {
 server {
     server_name shevastream.com;
 
+    access_log /var/log/nginx/shevastream.com.out.log;
+    error_log /var/log/nginx/shevastream.com.err.log;
+    
     ssl_certificate /etc/letsencrypt/live/shevastream.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/shevastream.com/privkey.pem;
 

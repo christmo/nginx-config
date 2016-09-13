@@ -8,6 +8,9 @@ server {
     ssl_certificate /etc/letsencrypt/live/mail.dbogatov.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/mail.dbogatov.org/privkey.pem;
 
+    access_log /var/log/nginx/mail.dbogatov.org.out.log;
+    error_log /var/log/nginx/mail.dbogatov.org.err.log;
+    
     server_name mail.dbogatov.org;
 
     include /etc/nginx/snippets/ssl_config.conf;

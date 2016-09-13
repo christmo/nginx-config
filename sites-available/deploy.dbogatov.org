@@ -7,6 +7,9 @@ server {
 server {
     server_name deploy.dbogatov.org;
 
+    access_log /var/log/nginx/deploy.dbogatov.org.out.log;
+    error_log /var/log/nginx/deploy.dbogatov.org.err.log;
+
     ssl_certificate /etc/letsencrypt/live/deploy.dbogatov.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/deploy.dbogatov.org/privkey.pem;
 

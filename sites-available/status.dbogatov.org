@@ -7,6 +7,9 @@ server {
 server {
     server_name status.dbogatov.org;
 
+    access_log /var/log/nginx/status.dbogatov.org.out.log;
+    error_log /var/log/nginx/status.dbogatov.org.err.log;
+    
     ssl_certificate /etc/letsencrypt/live/status.dbogatov.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/status.dbogatov.org/privkey.pem;
 
