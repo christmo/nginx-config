@@ -6,6 +6,7 @@ server {
 
 server {
     server_name *.dbogatov.org;
+#    listen 80 default_server;
     
     include /etc/nginx/snippets/http_redirect.conf;
 }
