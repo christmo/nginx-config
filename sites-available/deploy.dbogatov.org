@@ -51,6 +51,8 @@ server {
                path = "/var/static/Visa-Support/.deploy.sh"
               elseif project == "SocialImps" then
                path = "/root/CS-3043-Group-Project/Website/.deploy.sh"
+              elseif project == "MyBlog" then
+               path = "/var/static/My-Blog/.deploy.sh"
               end
 
               if project == "" then
