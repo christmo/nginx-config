@@ -53,5 +53,6 @@ server {
         expires 14d;
     }
 
+    include /etc/nginx/snippets/deny_locations.conf;
     include /etc/nginx/snippets/letsencrypt.conf;
 }

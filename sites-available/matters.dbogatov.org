@@ -31,5 +31,6 @@ server {
         proxy_pass http://localhost:8080/matters/;
     }
 
+    include /etc/nginx/snippets/deny_locations.conf;
     include /etc/nginx/snippets/letsencrypt.conf;
 }

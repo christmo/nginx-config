@@ -39,6 +39,7 @@ server {
         proxy_set_header Connection keep-alive;
     }
 
+    include /etc/nginx/snippets/deny_locations.conf;
     include /etc/nginx/snippets/letsencrypt.conf;
 
     location ~*  \.(jpg|jpeg|png|gif|ico)$ {

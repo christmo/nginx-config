@@ -32,5 +32,6 @@ server {
         proxy_pass http://localhost:8080/admin/;
     }
 
+    include /etc/nginx/snippets/deny_locations.conf;
     include /etc/nginx/snippets/letsencrypt.conf;
 }

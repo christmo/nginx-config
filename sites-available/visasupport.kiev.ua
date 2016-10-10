@@ -26,6 +26,6 @@ server {
     }
 
     include /etc/nginx/snippets/cache.conf;
-
+    include /etc/nginx/snippets/deny_locations.conf;
     include /etc/nginx/snippets/letsencrypt.conf;
 }
