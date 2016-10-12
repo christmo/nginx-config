@@ -53,6 +53,8 @@ server {
                path = "/root/CS-3043-Group-Project/Website/.deploy.sh"
               elseif project == "MyBlog" then
                path = "/var/static/My-Blog/.deploy.sh"
+              elseif project == "Inara-CV" then
+               path = "/var/static/Inara-CV/.deploy.sh"
               end
 
               if project == "" then
