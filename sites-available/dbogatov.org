@@ -1,11 +1,19 @@
 server {
-        server_name www.dbogatov.org;
+    server_name www.dbogatov.org;
 
-        return 301 $scheme://dbogatov.org$request_uri;
-    }
+    include /etc/nginx/snippets/ssl_config.conf;
+
+    include /etc/nginx/snippets/letsencrypt.conf;
+
+    ssl_certificate /etc/letsencrypt/live/dbogatov.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dbogatov.org/privkey.pem;
+
+    return 301 $scheme://dbogatov.org$request_uri;
+}
+
 
 server {
-    server_name *.dbogatov.org;
+    server_name dbogatov.org;
     
     include /etc/nginx/snippets/http_redirect.conf;
 }

@@ -6,12 +6,6 @@ server {
 
 server {
     server_name www.shevastream.com;
-    
-    return 301 $scheme://shevastream.com$request_uri;
-}
-
-server {
-    server_name www.shevastream.com;
 
     include /etc/nginx/snippets/ssl_config.conf;
 
