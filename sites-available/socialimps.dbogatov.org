@@ -1,6 +1,7 @@
 server {
     server_name socialimps.dbogatov.org;
-    
+ 
+
     include /etc/nginx/snippets/http_redirect.conf;
 }
 

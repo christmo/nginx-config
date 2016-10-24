@@ -1,17 +1,17 @@
 server {
-    server_name pgweb.dbogatov.org;
+    server_name postgresql.dbogatov.org;
 
     include /etc/nginx/snippets/http_redirect.conf;
 }
 
 server {
-    server_name pgweb.dbogatov.org;
+    server_name postgresql.dbogatov.org;
 
-    access_log /var/log/nginx/pgweb.dbogatov.org.out.log;
-    error_log /var/log/nginx/pgweb.dbogatov.org.err.log;
+    access_log /var/log/nginx/postgresql.dbogatov.org.out.log;
+    error_log /var/log/nginx/postgresql.dbogatov.org.err.log;
     
-    ssl_certificate /etc/letsencrypt/live/pgweb.dbogatov.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/pgweb.dbogatov.org/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/postgresql.dbogatov.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/postgresql.dbogatov.org/privkey.pem;
 
     include /etc/nginx/snippets/ssl_config.conf;
 

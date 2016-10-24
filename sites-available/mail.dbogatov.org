@@ -22,7 +22,7 @@ server {
     }
 
     location /mail {
-        proxy_pass http://box.dbogatov.org/mail/;
+        proxy_pass https://box.dbogatov.org/mail/;
 
         include /etc/nginx/snippets/proxy_pass.conf;
     }

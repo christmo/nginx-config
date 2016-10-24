@@ -14,7 +14,7 @@ server {
 
 server {
     server_name dbogatov.org;
-    
+
     include /etc/nginx/snippets/http_redirect.conf;
 }
 
@@ -29,7 +29,7 @@ server {
     
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/CV-Website/wwwroot;
+    root /srv/www/html/CV-Website/wwwroot;
 
     location = / {
         index home.html;
@@ -47,13 +47,13 @@ server {
 
     error_page 404 /404.html;
     location = /404.html {
-        root /var/static/CV-Website/wwwroot/errors/;
+        root /srv/www/html/CV-Website/wwwroot/errors/;
         internal;
     }
 
     error_page 500 502 503 504 /50x.html;
     location = /50x.html {
-        root /var/static/CV-Website/wwwroot/errors/;
+        root /srv/www/html/CV-Website/wwwroot/errors/;
         internal;
     }
 

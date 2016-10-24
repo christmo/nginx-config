@@ -15,7 +15,7 @@ server {
 
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/VisaSupport/visasupport.com.ua/;
+    root /srv/www/html/VisaSupport-Websites/visasupport.com.ua/;
     index index.php index.html index.htm default.html default.htm;
 
     client_max_body_size 100M;
@@ -31,7 +31,7 @@ server {
     }
     
     location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include /etc/nginx/fastcgi.conf;

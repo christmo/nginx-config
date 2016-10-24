@@ -21,7 +21,7 @@ server {
 
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/VisaSupport/moon-travel.com.ua/;
+    root /srv/www/html/VisaSupport-Websites/moon-travel.com.ua/;
     index index.php index.html index.htm default.html default.htm;
 
     client_max_body_size 100M;
@@ -39,7 +39,7 @@ server {
     location ~ \.php$ {
         try_files $uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
         fastcgi_index index.php;
         include /etc/nginx/fastcgi.conf;
     }

@@ -15,7 +15,7 @@ server {
 
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/VisaSupport/zima.visasupport.com.ua/;
+    root /srv/www/html/VisaSupport-Websites/zima.visasupport.com.ua/;
 
     location = / {
         index index.html;

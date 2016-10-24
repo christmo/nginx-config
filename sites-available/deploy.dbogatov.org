@@ -1,6 +1,6 @@
 server {
     server_name deploy.dbogatov.org;
-    
+
     include /etc/nginx/snippets/http_redirect.conf;
 }
     
@@ -30,6 +30,7 @@ server {
             local token = ""
             local project = ""
             local path = ""
+	    local logfile = "/var/log/deploy"
             
             if data then
              for key, val in pairs(args) do
@@ -44,25 +45,26 @@ server {
              if token == "SomeSecret" then
 
               if project == "CV-Website" then
-               path = "/var/static/CV-Website/.deploy.sh"
+               path = "/srv/www/html/CV-Website/.deploy.sh"
               elseif project == "DashaWebsite" then
-               path = "/var/static/dashawebsite/.deploy.sh"
-              elseif project == "VisaSupport" then
-               path = "/var/static/Visa-Support/.deploy.sh"
-              elseif project == "SocialImps" then
-               path = "/root/CS-3043-Group-Project/Website/.deploy.sh"
+               path = "/srv/www/html/DashaWebsite/.deploy.sh"
               elseif project == "MyBlog" then
-               path = "/var/static/My-Blog/.deploy.sh"
+               path = "/srv/www/html/My-Blog/.deploy.sh"
               elseif project == "Inara-CV" then
-               path = "/var/static/Inara-CV/.deploy.sh"
+               path = "/srv/www/html/Inara-CV/.deploy.sh"
               end
 
               if project == "" then
                ngx.say("No such project (", project, ")")
               else
+
+	       path = path .. " 1>> " .. logfile .. "/" .. project:lower() .. ".log" .. " 2>> " .. logfile .. "/" .. project:lower() .. ".log"
+
                ngx.say("Executing ", path)
+
                os.execute(path)
-               ngx.say("Execution completed")
+               
+	       ngx.say("Execution completed")
               end
 
              else

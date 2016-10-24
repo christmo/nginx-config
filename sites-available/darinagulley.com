@@ -10,12 +10,12 @@ server {
     access_log /var/log/nginx/darinagulley.com.out.log;
     error_log /var/log/nginx/darinagulley.com.err.log;
     
-    ssl_certificate /etc/letsencrypt/live/darinagulley.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/darinagulley.com/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/www.darinagulley.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.darinagulley.com/privkey.pem;
 
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/dashawebsite;
+    root /srv/www/html/DashaWebsite;
 
     location = / {
         index video.html;

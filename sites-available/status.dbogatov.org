@@ -16,21 +16,21 @@ server {
     include /etc/nginx/snippets/ssl_config.conf;
 
     location / {
-        root /var/php/phpservermon/;
+        root /srv/www/php/phpservermon/;
         index index.php index.html index.htm;
 
         location ~ ^/(.+\.php)$ {
 
             try_files $uri =404;
-            root /var/php/phpservermon/;
-            fastcgi_pass unix:/var/run/php5-fpm.sock;
+            root /srv/www/php/phpservermon/;
+            fastcgi_pass unix:/run/php/php7.0-fpm.sock;
             fastcgi_index index.php;
             fastcgi_param SCRIPT_FILENAME $request_filename;
             include /etc/nginx/fastcgi_params;
         }
 
         location ~* ^/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
-            root /var/php/phpservermon/;
+            root /srv/www/php/phpservermon/;
         }
     }
 

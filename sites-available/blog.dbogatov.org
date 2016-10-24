@@ -1,6 +1,6 @@
 server {
     server_name blog.dbogatov.org;
-    
+
     include /etc/nginx/snippets/http_redirect.conf;
 }
 
@@ -15,7 +15,7 @@ server {
     
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/My-Blog/_site/;
+    root /srv/www/html/My-Blog/_site/;
     index index.html;
 
     if (!-f "${request_filename}index.html") {

@@ -10,12 +10,12 @@ server {
     access_log /var/log/nginx/travelus.com.ua.out.log;
     error_log /var/log/nginx/travelus.com.ua.err.log;
 
-    ssl_certificate /etc/letsencrypt/live/www.travelus.com.ua/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/www.travelus.com.ua/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/travelus.com.ua/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/travelus.com.ua/privkey.pem;
 
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/VisaSupport/travelus.com.ua/;
+    root /srv/www/html/VisaSupport-Websites/travelus.com.ua/;
 
     location = / {
         index index.html;

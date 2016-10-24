@@ -20,7 +20,7 @@ server {
 server {
     server_name nigmatullina.org;
 
-    access_log /var/log/nginx/nigmatullina.org.org.out.log;
+    access_log /var/log/nginx/nigmatullina.org.out.log;
     error_log /var/log/nginx/nigmatullina.org.err.log;
     
     ssl_certificate /etc/letsencrypt/live/nigmatullina.org/fullchain.pem;
@@ -28,7 +28,7 @@ server {
 
     include /etc/nginx/snippets/ssl_config.conf;
 
-    root /var/static/Inara-CV/;
+    root /srv/www/html/Inara-CV/;
 
     location = / {
         index index.html;
