@@ -7,11 +7,11 @@ server {
 server {
     server_name blog.dbogatov.org;
 
-    access_log /var/log/nginx/blog.dbogatov.org.out.log;
-    error_log /var/log/nginx/blog.dbogatov.org.err.log;
+    access_log /var/log/nginx/blog.dbogatov.org.out.log main_ext;
+    error_log /var/log/nginx/blog.dbogatov.org.err.log warn;
 
-    ssl_certificate /etc/letsencrypt/live/blog.dbogatov.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/blog.dbogatov.org/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/dbogatov.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dbogatov.org/privkey.pem;
     
     include /etc/nginx/snippets/ssl_config.conf;
 

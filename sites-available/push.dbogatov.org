@@ -5,11 +5,11 @@ server {
 }
 
 server {
-    ssl_certificate /etc/letsencrypt/live/push.dbogatov.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/push.dbogatov.org/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/dbogatov.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dbogatov.org/privkey.pem;
 
-    access_log /var/log/nginx/push.dbogatov.org.out.log;
-    error_log /var/log/nginx/push.dbogatov.org.err.log;
+    access_log /var/log/nginx/push.dbogatov.org.out.log main_ext;
+    error_log /var/log/nginx/push.dbogatov.org.err.log warn;
 
     server_name push.dbogatov.org;
 

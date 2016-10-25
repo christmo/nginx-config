@@ -7,8 +7,8 @@ server {
 server {
     server_name darinagulley.com www.darinagulley.com;
 
-    access_log /var/log/nginx/darinagulley.com.out.log;
-    error_log /var/log/nginx/darinagulley.com.err.log;
+    access_log /var/log/nginx/darinagulley.com.out.log main_ext;
+    error_log /var/log/nginx/darinagulley.com.err.log warn;
     
     ssl_certificate /etc/letsencrypt/live/www.darinagulley.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/www.darinagulley.com/privkey.pem;

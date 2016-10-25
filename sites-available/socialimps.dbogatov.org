@@ -7,11 +7,11 @@ server {
 
 server {
 
-    access_log /var/log/nginx/socialimps.dbogatov.org.out.log;
-    error_log /var/log/nginx/socialimps.dbogatov.org.err.log;
+    access_log /var/log/nginx/socialimps.dbogatov.org.out.log main_ext;
+    error_log /var/log/nginx/socialimps.dbogatov.org.err.log warn;
     
-    ssl_certificate /etc/letsencrypt/live/socialimps.dbogatov.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/socialimps.dbogatov.org/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/dbogatov.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dbogatov.org/privkey.pem;
 
     server_name socialimps.dbogatov.org;
 

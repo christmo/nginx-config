@@ -20,8 +20,8 @@ server {
 server {
     server_name nigmatullina.org;
 
-    access_log /var/log/nginx/nigmatullina.org.out.log;
-    error_log /var/log/nginx/nigmatullina.org.err.log;
+    access_log /var/log/nginx/nigmatullina.org.out.log main_ext;
+    error_log /var/log/nginx/nigmatullina.org.err.log warn;
     
     ssl_certificate /etc/letsencrypt/live/nigmatullina.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/nigmatullina.org/privkey.pem;

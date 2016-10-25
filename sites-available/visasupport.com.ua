@@ -7,8 +7,8 @@ server {
 server {
     server_name visasupport.com.ua www.visasupport.com.ua;
 
-    access_log /var/log/nginx/visasupport.com.ua.out.log;
-    error_log /var/log/nginx/visasupport.com.ua.err.log;
+    access_log /var/log/nginx/visasupport.com.ua.out.log main_ext;
+    error_log /var/log/nginx/visasupport.com.ua.err.log warn;
 
     ssl_certificate /etc/letsencrypt/live/visasupport.com.ua/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/visasupport.com.ua/privkey.pem;

@@ -7,11 +7,11 @@ server {
 server {
     server_name eu.visasupport.kiev.ua;
 
-    access_log /var/log/nginx/eu.visasupport.kiev.ua.out.log;
-    error_log /var/log/nginx/eu.visasupport.kiev.ua.err.log;
+    access_log /var/log/nginx/eu.visasupport.kiev.ua.out.log main_ext;
+    error_log /var/log/nginx/eu.visasupport.kiev.ua.err.log warn;
     
-    ssl_certificate /etc/letsencrypt/live/eu.visasupport.kiev.ua/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/eu.visasupport.kiev.ua/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/visasupport.kiev.ua/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/visasupport.kiev.ua/privkey.pem;
 
     include /etc/nginx/snippets/ssl_config.conf;
 
