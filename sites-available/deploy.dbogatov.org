@@ -62,7 +62,7 @@ server {
 
                ngx.say("Executing ", path)
 
-               os.execute(path)
+--               os.execute(path)
                
 	       ngx.say("Execution completed")
               end
