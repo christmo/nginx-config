@@ -1,0 +1,3 @@
+
+ssl_certificate /etc/letsencrypt/live/lol.com/fullchain.pem
+ssl_certificate_key /etc/letsencrypt/live/lol.com/privkey.pem
