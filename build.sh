@@ -28,15 +28,24 @@ function build-server-block {
 	RESULT="${RESULT//_REDIRECT_/$REDIRECT}"
 	RESULT="${RESULT//_REDIRECTSSL_/$REDIRECTSSL}"
 
-	printf "$RESULT" > dist/$DOMAIN
+	printf "$RESULT" > dist/sites-enabled/$DOMAIN
 
 }
 
 function build {
+	rm -rf dist/
+	mkdir -p dist/sites-enabled
+	mkdir -p dist/snippets
+
 	for config in sites/*; 
 	do 
 		build-server-block $config
 	done
+
+	cp snippets/* dist/snippets/
+	cp nginx.conf mime.types dist/
+
+	echo "Build completed."
 }
 
 build
