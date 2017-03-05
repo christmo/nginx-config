@@ -1,19 +1,15 @@
-server {
-    server_name visasupport.com.ua www.visasupport.com.ua;
+_REDIRECTSSL_
 
-    include /etc/nginx/snippets/http_redirect.conf;
-}
+_REDIRECT_
 
 server {
-    server_name visasupport.com.ua www.visasupport.com.ua;
+	server_name _DOMAIN_;
 
-    access_log /var/log/nginx/visasupport.com.ua.out.log main_ext;
-    error_log /var/log/nginx/visasupport.com.ua.err.log warn;
+	_LOGS_
 
-    ssl_certificate /etc/letsencrypt/live/visasupport.com.ua/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/visasupport.com.ua/privkey.pem;
+	_CERTS_
 
-    include /etc/nginx/snippets/ssl_config.conf;
+	include /etc/nginx/snippets/includes.conf;
 
     root /srv/www/html/VisaSupport-Websites/visasupport.com.ua/;
     index index.php index.html index.htm default.html default.htm;
@@ -45,7 +41,4 @@ server {
     location ~* \.(js|css|png|jpg|jpeg|gif|swf|xml|txt)$ {
         expires 14d;
     }
-
-    include /etc/nginx/snippets/deny_locations.conf;
-    include /etc/nginx/snippets/letsencrypt.conf;
 }

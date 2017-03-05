@@ -1,0 +1,21 @@
+_REDIRECT_
+
+server {
+    server_name _DOMAIN_;
+
+	_LOGS_
+
+	_CERTS_
+
+	include /etc/nginx/snippets/includes.conf;
+
+    root /usr/share/nginx/html;
+
+    location = / {
+        index index.html;
+    }
+
+    location / {
+        try_files $uri.html $uri =404;
+    }
+}

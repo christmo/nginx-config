@@ -1,0 +1,23 @@
+_REDIRECT_
+
+server {
+    server_name _DOMAIN_;
+
+	_LOGS_
+
+	_CERTS_
+
+	include /etc/nginx/snippets/includes.conf;
+
+    location / {
+        proxy_pass https://box.dbogatov.org/mail/;
+
+        include /etc/nginx/snippets/proxy_pass.conf;
+    }
+
+    location /mail {
+        proxy_pass https://box.dbogatov.org/mail/;
+
+        include /etc/nginx/snippets/proxy_pass.conf;
+    }
+}

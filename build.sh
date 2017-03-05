@@ -8,16 +8,16 @@ function build-server-block {
 
 	echo "Processing $DOMAIN ...";
 
-	CERTS=$(<certs.conf)
+	CERTS=$(<shared/certs.conf)
 	CERTS="${CERTS//_DOMAIN_/$DOMAIN}"
 
-	LOGS=$(<logs.conf)
+	LOGS=$(<shared/logs.conf)
 	LOGS="${LOGS//_DOMAIN_/$DOMAIN}"
 
-	REDIRECT=$(<www-redirect.conf)
+	REDIRECT=$(<shared/www-redirect.conf)
 	REDIRECT="${REDIRECT//_DOMAIN_/$DOMAIN}"
 
-	REDIRECTSSL=$(<www-redirect-ssl.conf)
+	REDIRECTSSL=$(<shared/www-redirect-ssl.conf)
 	REDIRECTSSL="${REDIRECTSSL//_DOMAIN_/$DOMAIN}"
 	REDIRECTSSL="${REDIRECTSSL//_CERTS_/$CERTS}"
 
