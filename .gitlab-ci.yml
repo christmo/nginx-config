@@ -1,0 +1,13 @@
+stages:
+- build
+
+artifacts:
+  image: yikaus/alpine-bash
+  stage: build
+  script:
+  - ./build.sh
+  artifacts:
+    paths:
+    - dist/
+  only:
+    - master
