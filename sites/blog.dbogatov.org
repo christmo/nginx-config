@@ -1,0 +1,33 @@
+_REDIRECT_
+
+server {
+    server_name _DOMAIN_;
+
+   _LOGS_
+
+	_CERTS_
+
+	include /etc/nginx/snippets/includes.conf;
+
+    root /srv/www/html/My-Blog/_site/;
+    index index.html;
+
+    if (!-f "${request_filename}index.html") {
+        rewrite ^/(.*)/$ /$1 permanent;
+    }
+
+    if ($request_uri ~* "/index.html") {
+        rewrite (?i)^(.*)index\.html$ $1 permanent;
+    }
+
+    if ($request_uri ~* ".html") {
+        rewrite (?i)^(.*)/(.*)\.html $1/$2 permanent;
+    }
+
+    location / {
+        try_files  $uri $uri.html $uri/index.html $uri/ index.html;
+    }
+    
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /500.html; 
+}

@@ -1,0 +1,18 @@
+_REDIRECT_
+
+server {
+
+    server_name _DOMAIN_;
+
+	_LOGS_
+
+	_CERTS_
+
+	include /etc/nginx/snippets/includes.conf;
+
+    location / {
+        proxy_pass http://localhost:5003;
+
+        include /etc/nginx/snippets/proxy_pass.conf;
+    }
+}
