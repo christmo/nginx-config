@@ -1,66 +1,45 @@
-server {
-    server_name www.dbogatov.org;
+_REDIRECTSSL_
 
-    include /etc/nginx/snippets/ssl_config.conf;
-    include /etc/nginx/snippets/letsencrypt.conf;
-
-    ssl_certificate /etc/letsencrypt/live/dbogatov.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/dbogatov.org/privkey.pem;
-
-    return 301 $scheme://dbogatov.org$request_uri;
-}
-
+_REDIRECT_
 
 server {
-    server_name dbogatov.org;
+	server_name _DOMAIN_;
 
-    include /etc/nginx/snippets/http_redirect.conf;
-}
+	_LOGS_
 
-server {
-    server_name dbogatov.org;
+	_CERTS_
 
-    access_log /var/log/nginx/dbogatov.org.out.log main_ext;
-    error_log /var/log/nginx/dbogatov.org.err.log warn;
+	include /etc/nginx/snippets/includes.conf;
 
-    ssl_certificate /etc/letsencrypt/live/dbogatov.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/dbogatov.org/privkey.pem;
-    
-    include /etc/nginx/snippets/ssl_config.conf;
+	root /srv/www/html/CV-Website/wwwroot;
 
-    root /srv/www/html/CV-Website/wwwroot;
+	location = / {
+		index home.html;
+		
+		add_header X-PJAX-URL $scheme://$host$1;
+	}
+	
+	location / {
+		rewrite ^(/.+)\.html$ $scheme://$host$1 permanent;
+		
+		try_files $uri.html $uri =404;
 
-    location = / {
-        index home.html;
-        
-        add_header X-PJAX-URL $scheme://$host$1;
-    }
-    
-    location / {
-        rewrite ^(/.+)\.html$ $scheme://$host$1 permanent;
-        
-        try_files $uri.html $uri =404;
+		add_header X-PJAX-URL $scheme://$host$request_uri;
+	}
 
-        add_header X-PJAX-URL $scheme://$host$request_uri;
-    }
+	error_page 404 /404.html;
+	location = /404.html {
+		root /srv/www/html/CV-Website/wwwroot/errors/;
+		internal;
+	}
 
-    error_page 404 /404.html;
-    location = /404.html {
-        root /srv/www/html/CV-Website/wwwroot/errors/;
-        internal;
-    }
+	error_page 500 502 503 504 /50x.html;
+	location = /50x.html {
+		root /srv/www/html/CV-Website/wwwroot/errors/;
+		internal;
+	}
 
-    error_page 500 502 503 504 /50x.html;
-    location = /50x.html {
-        root /srv/www/html/CV-Website/wwwroot/errors/;
-        internal;
-    }
-
-    location /servererror {
-        fastcgi_pass unix:/does/not/exist;
-    }
-
-    include /etc/nginx/snippets/cache.conf;
-    include /etc/nginx/snippets/deny_locations.conf;
-    include /etc/nginx/snippets/letsencrypt.conf;
+	location /servererror {
+		fastcgi_pass unix:/does/not/exist;
+	}
 }

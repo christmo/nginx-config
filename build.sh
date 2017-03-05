@@ -2,17 +2,41 @@
 
 set -e
 
-build-server-block () {
+function build-server-block {
 
-  DOMAIN="lol.com"
+	DOMAIN=$(basename $1)
 
-while read line
-do
-    eval echo "$line"
-done < "./certs.conf"
+	echo "Processing $DOMAIN ...";
+
+	CERTS=$(<certs.conf)
+	CERTS="${CERTS//_DOMAIN_/$DOMAIN}"
+
+	LOGS=$(<logs.conf)
+	LOGS="${LOGS//_DOMAIN_/$DOMAIN}"
+
+	REDIRECT=$(<www-redirect.conf)
+	REDIRECT="${REDIRECT//_DOMAIN_/$DOMAIN}"
+
+	REDIRECTSSL=$(<www-redirect-ssl.conf)
+	REDIRECTSSL="${REDIRECTSSL//_DOMAIN_/$DOMAIN}"
+	REDIRECTSSL="${REDIRECTSSL//_CERTS_/$CERTS}"
+
+	RESULT=$(<$1)
+	RESULT="${RESULT//_DOMAIN_/$DOMAIN}"
+	RESULT="${RESULT//_CERTS_/$CERTS}"
+	RESULT="${RESULT//_LOGS_/$LOGS}"
+	RESULT="${RESULT//_REDIRECT_/$REDIRECT}"
+	RESULT="${RESULT//_REDIRECTSSL_/$REDIRECTSSL}"
+
+	printf "$RESULT" > dist/$DOMAIN
 
 }
 
+function build {
+	for config in sites/*; 
+	do 
+		build-server-block $config
+	done
+}
 
-
-build-server-block > lol.txt
+build
