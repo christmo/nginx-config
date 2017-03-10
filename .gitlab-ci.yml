@@ -17,6 +17,8 @@ build:
 test:
   image: nginx:alpine
   stage: test
+  dependencies:
+  - build
   script:
   # - apk update
   # - apk add bash
