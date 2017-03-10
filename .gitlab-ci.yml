@@ -2,7 +2,7 @@ stages:
 - build
 
 artifacts:
-  image: ruby:alpine
+  image: ruby:slim
   stage: build
   script:
   - ./build.sh
