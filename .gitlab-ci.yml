@@ -2,7 +2,7 @@ stages:
 - build
 
 artifacts:
-  image: yikaus/alpine-bash
+  image: ruby:alpine
   stage: build
   script:
   - ./build.sh
