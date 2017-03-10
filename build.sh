@@ -1,8 +1,8 @@
-#!/bin/sh 
+#!/bin/bash 
 
 set -e
 
-build () {
+function build {
 	rm -rf dist/
 	mkdir -p dist/sites-available
 	mkdir -p dist/snippets

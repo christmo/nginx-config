@@ -2,6 +2,10 @@ stages:
 - build
 - test
 
+before_script:
+- apk update
+- apk add bash
+
 build:
   image: ruby:alpine
   stage: build
@@ -20,8 +24,6 @@ test:
   dependencies:
   - build
   script:
-  # - apk update
-  # - apk add bash
   - ./test.sh
   artifacts:
     paths:

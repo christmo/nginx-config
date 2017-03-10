@@ -1,8 +1,8 @@
-#!/bin/sh 
+#!/bin/bash 
 
 set -e
 
-setup () {
+function setup {
 	
 	cp dist/* /etc/nginx
 
