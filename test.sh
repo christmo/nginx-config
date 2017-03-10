@@ -4,7 +4,7 @@ set -e
 
 function setup {
 	
-	cp dist/* /etc/nginx
+	cp -r dist/* /etc/nginx
 
 	echo "Setup completed."
 }
