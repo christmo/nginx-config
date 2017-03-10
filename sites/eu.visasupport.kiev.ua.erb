@@ -1,11 +1,13 @@
-_REDIRECT_
+<% $domain = "eu.visasupport.kiev.ua" %>
+
+<%= render("../partials/www-redirect.conf.erb") %>
 
 server {
-    server_name _DOMAIN_;
+    server_name <%= $domain %>;
 
-	_LOGS_
+	<%= render("../partials/logs.conf.erb") %>
 
-	_CERTS_
+	<%= render("../partials/certs.conf.erb") %>
 
 	include /etc/nginx/snippets/includes.conf;
 
