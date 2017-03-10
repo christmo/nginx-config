@@ -1,15 +1,28 @@
 stages:
 - build
+- test
 
-artifacts:
+build:
   image: ruby:alpine
   stage: build
   script:
   - ./build.sh
   artifacts:
+    expire_in: 30 min
     paths:
     - dist/
-  only:
-    - master
+  tags:
+  - Docker
+
+test:
+  image: nginx:alpine
+  stage: test
+  script:
+  # - apk update
+  # - apk add bash
+  - ./test.sh
+  artifacts:
+    paths:
+    - dist/
   tags:
   - Docker
