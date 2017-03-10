@@ -10,6 +10,7 @@ function build {
 	cd sites
 	for template in *.erb; 
 	do 
+		echo "Generating ${template%.*}"
 		erb -r ../render.rb $template > ../dist/sites-enabled/${template%.*}
 	done
 	cd ..
