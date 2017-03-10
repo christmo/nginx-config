@@ -24,6 +24,7 @@ test:
   dependencies:
   - build
   script:
+  - apk add openssl
   - ./test.sh
   artifacts:
     paths:
