@@ -21,12 +21,6 @@ function build {
 	cp snippets/* dist/snippets/
 	cp nginx.conf mime.types dist/
 
-	echo "Generating all-sites-letsencrypt..."
-
-	LETSENCRYPT=$(<all-sites-letsencrypt.conf)
-	LETSENCRYPT="${LETSENCRYPT//_NAMES_/$SITES}"
-	printf "$LETSENCRYPT" > dist/sites-available/all-sites-letsencrypt
-
 	echo "Build completed."
 }
 
