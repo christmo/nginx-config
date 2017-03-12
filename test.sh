@@ -35,7 +35,6 @@ function setup {
 		sed -i 's/fullchain.pem/nginx.crt/g' $site
 		sed -i 's/privkey.pem/nginx.key/g' $site
 	done
-	rm /etc/nginx/sites-enabled/all-sites-letsencrypt
 
 	echo "Setup completed."
 }
