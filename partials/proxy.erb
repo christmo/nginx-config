@@ -1,4 +1,4 @@
-<% $domain = "nigmatullina.org" %>
+<% $domain = "__DOMAIN__" %>
 
 <%= render("../partials/www-redirect-ssl.conf.erb") %>
 
@@ -14,7 +14,7 @@ server {
 	include /etc/nginx/snippets/includes.conf;
 
     location / {
-        proxy_pass http://localhost:8001;
+        proxy_pass http://10.132.6.223:__PORT__;
         proxy_set_header Connection keep-alive;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
