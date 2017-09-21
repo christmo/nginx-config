@@ -38,8 +38,8 @@ deploy:
   dependencies:
   - build
   before_script:
-  script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.dbogatov.org
+  script:
     - mv dist/sites-available dist/sites-enabled
     - docker build -t registry.dbogatov.org/dbogatov/nginx-config .
     - docker push registry.dbogatov.org/dbogatov/nginx-config
