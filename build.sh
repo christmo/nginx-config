@@ -29,13 +29,13 @@ function build {
 
 	rm -rf dist/tmp-erb
 
-	# cd sites
-	# for template in *.erb; 
-	# do 
-	# 	echo "Generating ${template%.*}..."
-	# 	erb -r ../render.rb $template > ../dist/sites-available/${template%.*}
-	# done
-	# cd ..
+	cd sites
+	for template in *.erb; 
+	do 
+		echo "Regenerating ${template%.*}..."
+		erb -r ../render.rb $template > ../dist/sites-available/${template%.*}
+	done
+	cd ..
 
 	cp snippets/* dist/snippets/
 	cp nginx.conf mime.types dist/

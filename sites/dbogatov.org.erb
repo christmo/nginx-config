@@ -1,0 +1,53 @@
+<% $domain = "dbogatov.org" %>
+
+
+<%= render("../partials/www-redirect-ssl.conf.erb") %>
+
+<%= render("../partials/www-redirect.conf.erb") %>
+
+
+server {
+	server_name <%= $domain %>;
+
+	<%= render("../partials/logs.conf.erb") %>
+
+	<%= render("../partials/certs.conf.erb") %>
+
+	include /etc/nginx/snippets/includes.conf;
+
+	location = / { 
+		proxy_pass http://localhost:8501;
+
+		include /etc/nginx/snippets/proxy_pass.conf;
+
+		add_header X-PJAX-URL $scheme://$host/home; 
+	}
+
+	location / { 
+		rewrite ^(/.+).html$ $scheme://$host$1 permanent;
+		
+		proxy_pass http://localhost:8501;
+
+		include /etc/nginx/snippets/proxy_pass.conf;
+
+		add_header X-PJAX-URL $scheme://$host$request_uri; 
+	}
+
+	error_page 404 /404.html; 
+	location = 404.html { 
+		proxy_pass http://localhost:8501/errors/404.html;
+
+		include /etc/nginx/snippets/proxy_pass.conf;
+
+		internal; 
+	}
+	
+	error_page 500 502 503 504 /50x.html; 
+	location = 50x.html { 
+		proxy_pass http://localhost:8501/errors/50x.html;
+
+		include /etc/nginx/snippets/proxy_pass.conf;
+		
+		internal; 
+	}
+}
