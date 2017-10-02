@@ -3,7 +3,8 @@
 set -e
 
 docker run \
-	-it \
+	--name nginx \
+	-itd \
 	-p 80:80 \
 	-p 443:443 \
 	-v /etc/letsencrypt/:/etc/letsencrypt/ \
