@@ -4,6 +4,15 @@ set -e
 
 function setup {
 	
+	source sites.sh
+
+	for ((i = 0; i < ${#HOSTS[@]}; ++i)); 
+	do
+		echo "Generating host ${HOSTS[$i]}..."
+
+		echo "127.0.0.1       ${HOSTS[$i]}" >> /etc/hosts
+	done
+
 	adduser -D www-data
 
 	cp -r dist/* /etc/nginx
@@ -34,15 +43,6 @@ function setup {
 		
 		sed -i 's/fullchain.pem/nginx.crt/g' $site
 		sed -i 's/privkey.pem/nginx.key/g' $site
-	done
-
-	source sites.sh
-
-	for ((i = 0; i < ${#HOSTS[@]}; ++i)); 
-	do
-		echo "Generating host ${HOSTS[$i]}..."
-
-		echo "127.0.0.1       ${HOSTS[$i]}" >> /etc/hosts
 	done
 
 	echo "Setup completed."
