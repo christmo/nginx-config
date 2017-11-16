@@ -2,7 +2,7 @@
 
 ## How add to swarm
 
-Make sure that overlay network is created
+Make sure the overlay network is created
 
 ```
 docker network create \
@@ -29,5 +29,5 @@ Update the service
 
 ```
 docker pull registry.dbogatov.org/dbogatov/nginx-config:latest
-docker service update --image registry.dbogatov.org/dbogatov/nginx-config:latest
+docker service update --image registry.dbogatov.org/dbogatov/nginx-config:latest nginx
 ```
