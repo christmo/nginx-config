@@ -26,9 +26,9 @@ SITES=(
 	# "status.dbogatov.org"
 )
 
-PORTS=(
-	8500
-	8501
+HOSTS=(
+	"inara-cv"
+	"cv-website"
 	# 8502
 	# 8503
 	# 8504

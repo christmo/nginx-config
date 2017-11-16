@@ -14,7 +14,7 @@ server {
 	include /etc/nginx/snippets/includes.conf;
 
     location / {
-        proxy_pass http://10.132.6.223:__PORT__;
+        proxy_pass http://__HOST__;
         proxy_set_header Connection keep-alive;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
