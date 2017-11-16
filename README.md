@@ -24,3 +24,10 @@ docker service create \
 	--network internal-network \
 	registry.dbogatov.org/dbogatov/nginx-config:latest
 ```
+
+Update the service
+
+```
+docker pull registry.dbogatov.org/dbogatov/nginx-config:latest
+docker service update --image registry.dbogatov.org/dbogatov/nginx-config:latest
+```

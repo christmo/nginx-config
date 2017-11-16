@@ -36,6 +36,15 @@ function setup {
 		sed -i 's/privkey.pem/nginx.key/g' $site
 	done
 
+	source sites.sh
+
+	for ((i = 0; i < ${#HOSTS[@]}; ++i)); 
+	do
+		echo "Generating host ${HOSTS[$i]}..."
+
+		echo "127.0.0.1       ${HOSTS[$i]}" >> /etc/hosts
+	done
+
 	echo "Setup completed."
 }
 
