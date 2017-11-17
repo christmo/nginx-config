@@ -5,7 +5,7 @@ set -e
 SITES=(
 	"nigmatullina.org"
 	"dbogatov.org"
-	# "blog.dbogatov.org"
+	"blog.dbogatov.org"
 	# "darinagulley.com"
 	# "eu.visasupport.kiev.ua"
 	# "lp.visasupport.kiev.ua"
@@ -29,7 +29,7 @@ SITES=(
 HOSTS=(
 	"inara-cv"
 	"cv-website"
-	# 8502
+	"my-blog"
 	# 8503
 	# 8504
 	# 8505
