@@ -30,7 +30,7 @@ HOSTS=(
 	"inara-cv"
 	"cv-website"
 	"my-blog"
-	"darinagulley"
+	"dashawebsite"
 	# 8504
 	# 8505
 	# 8506
