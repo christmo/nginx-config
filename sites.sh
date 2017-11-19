@@ -27,10 +27,10 @@ SITES=(
 )
 
 HOSTS=(
-	"inara-cv"
-	"cv-website"
-	"my-blog"
-	"dashawebsite"
+	"nigmatullina-org"
+	"dbogatov-org"
+	"blog-dbogatov-org"
+	"darinagulley-com"
 	# 8504
 	# 8505
 	# 8506
