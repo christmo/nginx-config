@@ -30,11 +30,14 @@ function build {
 	rm -rf dist/tmp-erb
 
 	cd sites
-	for template in *.erb; 
-	do 
-		echo "Regenerating ${template%.*}..."
-		erb -r ../render.rb $template > ../dist/sites-available/${template%.*}
-	done
+
+	if [ $(ls -A *.erb | wc -l) -gt 0 ]; then
+		for template in *.erb; 
+		do 
+			echo "Regenerating ${template%.*}..."
+			erb -r ../render.rb $template > ../dist/sites-available/${template%.*}
+		done
+	fi
 	cd ..
 
 	cp snippets/* dist/snippets/
