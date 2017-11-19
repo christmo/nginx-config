@@ -4,8 +4,8 @@ set -e
 
 SITES=(
 	"nigmatullina.org"
-	"dbogatov.org"
-	"blog.dbogatov.org"
+	# "dbogatov.org"
+	# "blog.dbogatov.org"
 	# "darinagulley.com"
 	# "eu.visasupport.kiev.ua"
 	# "lp.visasupport.kiev.ua"
@@ -26,26 +26,26 @@ SITES=(
 	# "status.dbogatov.org"
 )
 
-HOSTS=(
-	"nigmatullina-org"
-	"dbogatov-org"
-	"blog-dbogatov-org"
-	# "darinagulley-com"
-	# 8504
-	# 8505
-	# 8506
-	# 8507
-	# 8508
-	# 8509
-	# 8510
-	# 8511
-	# 8512
-	# 8513
-	# 8514
-	# 8515
-	# 8516
-	# 8517
-	# 8518
-	# 8519
-	# 8520
-)
+# HOSTS=(
+# 	"nigmatullina-org"
+# 	"dbogatov-org"
+# 	"blog-dbogatov-org"
+# 	# "darinagulley-com"
+# 	# 8504
+# 	# 8505
+# 	# 8506
+# 	# 8507
+# 	# 8508
+# 	# 8509
+# 	# 8510
+# 	# 8511
+# 	# 8512
+# 	# 8513
+# 	# 8514
+# 	# 8515
+# 	# 8516
+# 	# 8517
+# 	# 8518
+# 	# 8519
+# 	# 8520
+# )
