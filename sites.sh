@@ -6,7 +6,7 @@ SITES=(
 	"nigmatullina.org"
 	"dbogatov.org"
 	"blog.dbogatov.org"
-	# "darinagulley.com"
+	"darinagulley.com"
 	# "eu.visasupport.kiev.ua"
 	# "lp.visasupport.kiev.ua"
 	# "visasupport.kiev.ua"
@@ -30,7 +30,7 @@ HOSTS=(
 	"inara-cv"
 	"cv-website"
 	"my-blog"
-	# 8503
+	"darinagulley"
 	# 8504
 	# 8505
 	# 8506
