@@ -31,7 +31,7 @@ function build {
 
 	cd sites
 
-	if [ $(ls -A *.erb | wc -l) -gt 0 ]; then
+	if [ $(ls -1 *.erb 2>/dev/null | wc -l) -gt 0 ]; then
 		for template in *.erb; 
 		do 
 			echo "Regenerating ${template%.*}..."
