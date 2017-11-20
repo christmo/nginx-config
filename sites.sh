@@ -4,7 +4,7 @@ set -e
 
 SITES=(
 	"nigmatullina.org"
-	# "dbogatov.org"
+	"dbogatov.org"
 	"blog.dbogatov.org"
 	# "darinagulley.com"
 	# "eu.visasupport.kiev.ua"
