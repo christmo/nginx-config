@@ -18,7 +18,7 @@ function build {
 		cp partials/proxy.erb dist/tmp-erb/${SITES[$i]}
 
 		sed -i -e "s/__DOMAIN__/${SITES[$i]}/g" dist/tmp-erb/${SITES[$i]}
-		sed -i -e "s/__HOST__/${HOSTS[$i]}/g" dist/tmp-erb/${SITES[$i]}
+		sed -i -e "s/__HOST__/${SITES[$i]}/g" dist/tmp-erb/${SITES[$i]}
 
 		cd partials
 
