@@ -20,7 +20,7 @@ SITES=(
 	# "push.dbogatov.org"
 	# "shevastream.com"
 	# "vpn.dbogatov.org"
-	# "personal.dbogatov.org"
+	"legacy.dbogatov.org"
 	# "visajapan.com.ua"
 	# "socialimps.dbogatov.org"
 	# "status.dbogatov.org"
