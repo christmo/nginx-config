@@ -18,7 +18,7 @@ SITES=(
 	# "moon-travel.com.ua"
 	# "mail.dbogatov.org"
 	# "push.dbogatov.org"
-	# "shevastream.com"
+	"shevastream.com"
 	# "vpn.dbogatov.org"
 	"legacy.dbogatov.org"
 	# "visajapan.com.ua"
