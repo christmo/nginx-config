@@ -16,12 +16,12 @@ SITES["darinagulley.com"]=""
 SITES["shevastream.com"]=""
 
 SITES["visasupport.com.ua"]=""
-SITES["eu.visasupport.kiev.ua"]="visasupport:8001"
-SITES["lp.visasupport.kiev.ua"]="visasupport:8002"
-SITES["travelus.com.ua"]="visasupport:8003"
-SITES["visajapan.com.ua"]="visasupport:8004"
-SITES["visasupport.kiev.ua"]="visasupport:8005"
-SITES["zima.visasupport.com.ua"]="visasupport:8006"
+SITES["eu.visasupport.kiev.ua"]="visasupport-kiev-ua:8001"
+SITES["lp.visasupport.kiev.ua"]="visasupport-kiev-ua:8002"
+SITES["travelus.com.ua"]="visasupport-kiev-ua:8003"
+SITES["visajapan.com.ua"]="visasupport-kiev-ua:8004"
+SITES["visasupport.kiev.ua"]="visasupport-kiev-ua:8005"
+SITES["zima.visasupport.com.ua"]="visasupport-kiev-ua:8006"
 
 SITESOLD=(
 	"nigmatullina.org"
