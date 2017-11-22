@@ -1,8 +1,9 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
 
 set -e
 
 function build {
+
 	rm -rf dist/
 	mkdir -p dist/sites-available
 	mkdir -p dist/snippets
@@ -11,18 +12,24 @@ function build {
 
 	mkdir -p dist/tmp-erb
 
-	for ((i = 0; i < ${#SITES[@]}; ++i)); 
+	for site in "${!SITES[@]}" 
 	do
-		echo "Generating ${SITES[$i]}..."
+		echo "Generating $site..."
 
-		cp partials/proxy.erb dist/tmp-erb/${SITES[$i]}
+		HOST=${site//./-}
 
-		sed -i -e "s/__DOMAIN__/${SITES[$i]}/g" dist/tmp-erb/${SITES[$i]}
-		sed -i -e "s/__HOST__/${SITES[$i]//./-}/g" dist/tmp-erb/${SITES[$i]}
+		if [ -n "${SITES[$site]}" ]; then
+			HOST=${SITES[$site]}
+		fi
+
+		cp partials/proxy.erb dist/tmp-erb/$site
+
+		sed -i -e "s/__DOMAIN__/$site/g" dist/tmp-erb/$site
+		sed -i -e "s/__HOST__/$HOST/g" dist/tmp-erb/$site
 
 		cd partials
 
-		erb -r ../render.rb ../dist/tmp-erb/${SITES[$i]} > ../dist/sites-available/${SITES[$i]}
+		erb -r ../render.rb ../dist/tmp-erb/$site > ../dist/sites-available/$site
 
 		cd ..
 	done

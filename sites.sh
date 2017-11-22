@@ -2,7 +2,28 @@
 
 set -e
 
-SITES=(
+declare -A SITES
+
+SITES["dbogatov.org"]=""
+SITES["blog.dbogatov.org"]=""
+SITES["legacy.dbogatov.org"]=""
+SITES["socialimps.dbogatov.org"]=""
+
+SITES["nigmatullina.org"]=""
+
+SITES["darinagulley.com"]=""
+
+SITES["shevastream.com"]=""
+
+SITES["visasupport.com.ua"]=""
+SITES["eu.visasupport.kiev.ua"]="visasupport:8001"
+SITES["lp.visasupport.kiev.ua"]="visasupport:8002"
+SITES["travelus.com.ua"]="visasupport:8003"
+SITES["visajapan.com.ua"]="visasupport:8004"
+SITES["visasupport.kiev.ua"]="visasupport:8005"
+SITES["zima.visasupport.com.ua"]="visasupport:8006"
+
+SITESOLD=(
 	"nigmatullina.org"
 	"dbogatov.org"
 	"blog.dbogatov.org"
@@ -25,27 +46,3 @@ SITES=(
 	"socialimps.dbogatov.org"
 	# "status.dbogatov.org"
 )
-
-# HOSTS=(
-# 	"nigmatullina-org"
-# 	"dbogatov-org"
-# 	"blog-dbogatov-org"
-# 	# "darinagulley-com"
-# 	# 8504
-# 	# 8505
-# 	# 8506
-# 	# 8507
-# 	# 8508
-# 	# 8509
-# 	# 8510
-# 	# 8511
-# 	# 8512
-# 	# 8513
-# 	# 8514
-# 	# 8515
-# 	# 8516
-# 	# 8517
-# 	# 8518
-# 	# 8519
-# 	# 8520
-# )
