@@ -22,7 +22,7 @@ SITES=(
 	# "vpn.dbogatov.org"
 	"legacy.dbogatov.org"
 	# "visajapan.com.ua"
-	# "socialimps.dbogatov.org"
+	"socialimps.dbogatov.org"
 	# "status.dbogatov.org"
 )
 
