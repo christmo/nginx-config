@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
 
 set -e
 
@@ -23,26 +23,6 @@ SITES["visajapan.com.ua"]="visasupport-kiev-ua:8004"
 SITES["visasupport.kiev.ua"]="visasupport-kiev-ua:8005"
 SITES["zima.visasupport.com.ua"]="visasupport-kiev-ua:8006"
 
-SITESOLD=(
-	"nigmatullina.org"
-	"dbogatov.org"
-	"blog.dbogatov.org"
-	"darinagulley.com"
-	# "eu.visasupport.kiev.ua"
-	# "lp.visasupport.kiev.ua"
-	# "visasupport.kiev.ua"
-	# "zima.visasupport.com.ua"
-	# "visasupport.com.ua"
-	# "travelus.com.ua"
-	# "bogatov.kiev.ua"
-	# "blog.bogatov.kiev.ua"
-	# "moon-travel.com.ua"
-	# "mail.dbogatov.org"
-	# "push.dbogatov.org"
-	"shevastream.com"
-	# "vpn.dbogatov.org"
-	"legacy.dbogatov.org"
-	# "visajapan.com.ua"
-	"socialimps.dbogatov.org"
-	# "status.dbogatov.org"
-)
+SITES["veles-russia.com"]=""
+
+SITES["photobarrat.com"]=""
