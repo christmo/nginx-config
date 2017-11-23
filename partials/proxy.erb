@@ -14,8 +14,6 @@ server {
 	include /etc/nginx/snippets/includes.conf;
 
     location / {
-		resolver 127.0.0.11 valid=30s;
-
 		set $upstream___UPSTREAM__ __HOST__;
 
         proxy_pass http://$upstream___UPSTREAM__;

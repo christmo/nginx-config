@@ -17,7 +17,6 @@ server {
 	include /etc/nginx/snippets/includes.conf;
 
 	location = / { 
-
 		set $upstream_<%= $upstream %> <%= $host %>;
 
 		proxy_pass http://$upstream_<%= $upstream %>;
@@ -27,7 +26,7 @@ server {
 		add_header X-PJAX-URL $scheme://$host/home; 
 	}
 
-	location / { 
+	location / { 		
 		rewrite ^(/.+).html$ $scheme://$host$1 permanent;
 		
 		set $upstream_<%= $upstream %> <%= $host %>;
