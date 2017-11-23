@@ -26,7 +26,7 @@ function build {
 
 		sed -i -e "s/__DOMAIN__/$site/g" dist/tmp-erb/$site
 		sed -i -e "s/__HOST__/$HOST/g" dist/tmp-erb/$site
-		sed -i -e "s/__UPSTREAM__/${site//./_}/g" dist/tmp-erb/$site
+		sed -i -e "s/__UPSTREAM__/${HOST//-/_}/g" dist/tmp-erb/$site
 
 		cd partials
 
