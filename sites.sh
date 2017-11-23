@@ -8,6 +8,7 @@ SITES["dbogatov.org"]=""
 SITES["blog.dbogatov.org"]=""
 SITES["legacy.dbogatov.org"]=""
 SITES["socialimps.dbogatov.org"]=""
+SITES["push.dbogatov.org"]=""
 
 SITES["nigmatullina.org"]=""
 
