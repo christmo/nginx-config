@@ -43,7 +43,7 @@ server {
 	location = 404.html { 
 		set $upstream_<%= $upstream %> <%= $host %>;
 
-		proxy_pass http://$upstream_<%= $upstream %>/errors/404.html;;
+		proxy_pass http://$upstream_<%= $upstream %>/errors/404.html;
 
 		include /etc/nginx/snippets/proxy_pass.conf;
 
@@ -54,7 +54,7 @@ server {
 	location = 50x.html { 
 		set $upstream_<%= $upstream %> <%= $host %>;
 
-		proxy_pass http://$upstream_<%= $upstream %>/errors/50x.html;;
+		proxy_pass http://$upstream_<%= $upstream %>/errors/50x.html;
 
 		include /etc/nginx/snippets/proxy_pass.conf;
 		
