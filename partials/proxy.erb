@@ -14,7 +14,9 @@ server {
 	include /etc/nginx/snippets/includes.conf;
 
     location / {
-        proxy_pass http://__HOST__;
+		set $upstream___UPSTREAM__ __HOST__;
+
+        proxy_pass http://$upstream___UPSTREAM__;
         proxy_set_header Connection keep-alive;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;

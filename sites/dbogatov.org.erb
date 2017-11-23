@@ -1,4 +1,5 @@
 <% $domain = "dbogatov.org" %>
+<% $upstream = "dbogatov_org" %>
 <% $host = "dbogatov-org" %>
 
 <%= render("../partials/www-redirect-ssl.conf.erb") %>
@@ -16,7 +17,10 @@ server {
 	include /etc/nginx/snippets/includes.conf;
 
 	location = / { 
-		proxy_pass http://<%= $host %>;
+
+		set $upstream_<%= $upstream %> <%= $host %>;
+
+		proxy_pass http://$upstream_<%= $upstream %>;
 
 		include /etc/nginx/snippets/proxy_pass.conf;
 
@@ -26,7 +30,9 @@ server {
 	location / { 
 		rewrite ^(/.+).html$ $scheme://$host$1 permanent;
 		
-		proxy_pass http://<%= $host %>;
+		set $upstream_<%= $upstream %> <%= $host %>;
+
+		proxy_pass http://$upstream_<%= $upstream %>;
 
 		include /etc/nginx/snippets/proxy_pass.conf;
 
@@ -35,7 +41,9 @@ server {
 
 	error_page 404 /404.html; 
 	location = 404.html { 
-		proxy_pass http://<%= $host %>/errors/404.html;
+		set $upstream_<%= $upstream %> <%= $host %>;
+
+		proxy_pass http://$upstream_<%= $upstream %>/errors/404.html;;
 
 		include /etc/nginx/snippets/proxy_pass.conf;
 
@@ -44,7 +52,9 @@ server {
 	
 	error_page 500 502 503 504 /50x.html; 
 	location = 50x.html { 
-		proxy_pass http://<%= $host %>/errors/50x.html;
+		set $upstream_<%= $upstream %> <%= $host %>;
+
+		proxy_pass http://$upstream_<%= $upstream %>/errors/50x.html;;
 
 		include /etc/nginx/snippets/proxy_pass.conf;
 		
