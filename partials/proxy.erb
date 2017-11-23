@@ -14,7 +14,7 @@ server {
 	include /etc/nginx/snippets/includes.conf;
 
     location / {
-		resolver 127.0.0.1 valid=30s;
+		# resolver 127.0.0.1 valid=30s;
 
 		set $upstream___UPSTREAM__ __HOST__;
 
