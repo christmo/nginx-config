@@ -16,7 +16,7 @@ server {
     location / {
 		set $upstream___UPSTREAM__ __HOST__;
 
-        proxy_pass http://$upstream___UPSTREAM__;
+        proxy_pass http://$upstream___UPSTREAM__:80;
         proxy_set_header Connection keep-alive;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
