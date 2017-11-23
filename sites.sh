@@ -25,4 +25,4 @@ SITES["zima.visasupport.com.ua"]="visasupport-kiev-ua:8006"
 
 SITES["veles-russia.com"]=""
 
-SITES["photobarrat.com"]=""
+SITES["vleskniga.com"]=""
