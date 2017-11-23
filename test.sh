@@ -6,12 +6,12 @@ function setup {
 	
 	source sites.sh
 
-	for site in "${!SITES[@]}"
-	do
-		echo "Generating host ${site//./-}..."
+	# for site in "${!SITES[@]}"
+	# do
+	# 	echo "Generating host ${site//./-}..."
 
-		echo "127.0.0.1       ${site//./-}" >> /etc/hosts
-	done
+	# 	echo "127.0.0.1       ${site//./-}" >> /etc/hosts
+	# done
 
 	adduser -D www-data
 
