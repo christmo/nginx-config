@@ -30,3 +30,5 @@ SITES["vleskniga.com"]=""
 
 SITES["blog.bogatov.kiev.ua"]=""
 SITES["bogatov.kiev.ua"]=""
+
+SITES["status.dbogatov.org"]="status_nginx"
