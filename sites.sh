@@ -4,7 +4,6 @@ set -e
 
 declare -A SITES
 
-SITES["dbogatov.org"]=""
 SITES["blog.dbogatov.org"]=""
 SITES["legacy.dbogatov.org"]=""
 SITES["socialimps.dbogatov.org"]=""
