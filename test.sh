@@ -24,6 +24,10 @@ function setup {
 		-out /etc/nginx/ssl/nginx.crt \
 		-subj "/C=NL/ST=Whatever/L=Whatever/O=Whatever/OU=Whatever/CN=whatever.example.com"
 
+	mkdir -p /etc/letsencrypt/live/dbogatov.org
+	cp /etc/nginx/ssl/nginx.key /etc/letsencrypt/live/dbogatov.org/
+	cp /etc/nginx/ssl/nginx.crt /etc/letsencrypt/live/dbogatov.org/
+
 	cd /etc/nginx/sites-available/
 
 	for site in *; 
